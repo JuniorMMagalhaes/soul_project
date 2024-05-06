@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+Todos os Cadastros
+{% endblock title %}
+{% block content %}
+<a href="{% url 'create_user' %}" class="btn btn-primary">Cadastrar</a>
+
+<br><br>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Todos os cadastros:</h3>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>ID:</th>
+                    <th>Nome:</th>
+                    <th>Email:</th>                
+                    <th>Ações</th>                
+                </tr>
+            </thead>
+            <tbody>
+                {% for userRecod in userRecod %}
+                     <tr>
+                        <td>{{ userRecod.id }}</td>
+                        <td>{{ userRecod.user_name }}</td>
+                        <td>{{ userRecod.user_email }}</td>
+                        <td>
+                            <a href="{% url 'update_user' userRecod.id %}" class="btn btn-secondary">Editar</a>
+                            <a href="{% url 'delete_user' userRecod.id %}" class="btn btn-danger">Deletar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock content %}

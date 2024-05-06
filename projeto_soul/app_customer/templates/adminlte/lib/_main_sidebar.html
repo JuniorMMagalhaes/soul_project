@@ -1,0 +1,50 @@
+{% extends "adminlte/lib/_main_sidebar.html" %}
+
+{% block logo_text %}
+<span class="brand-text font-weight-light"> CRUD</span>
+{% endblock logo_text %}
+{% block user_panel %}
+
+{% endblock user_panel %}
+
+{% block nav_heading %}
+
+{% endblock nav_heading %}
+
+{% block nav_links %}
+<li class="nav-item has-tree-view ">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-object-group"></i>
+        <p>Cadastros</p>
+        <p><i class="right fas fa-angle-left"></i>
+        </p>
+    </a>
+    <br>
+    <ul class="nav nav-treeview menu-open">        
+        <li class="nav-item">
+            <a href="{% url "read_user" %}" class="nav-link">
+                <i class="nav-icon fas fa-user"></i> Pessoa Física
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url "read_companies" %}" class="nav-link">
+                <i class="nav-icon fas fa-building"></i> Pessoa Jurídica
+            </a>
+        </li>
+    </ul>
+</li>
+
+<!-- <li class="nav-item">
+    <a href="{% url "create_user" %}" class="nav-link">
+        <i class="nav-icon fas fa-user"></i> 
+        <p>Cadastrar Novo Usuario</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="{% url "read_user" %}" class="nav-link">
+        <i class="nav-icon fas fa-user"></i> 
+        <p>Todos os Cadastros</p>
+    </a>
+</li> -->
+
+{% endblock nav_links %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+Todos os Cadastros
+{% endblock title %}
+{% block content %}
+<a href="{% url 'create_company' %}" class="btn btn-primary">Cadastrar</a>
+
+<br><br>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Todos os cadastros:</h3>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-condensed">
+            <thead>
+                <tr>
+                    <th>ID:</th>
+                    <th>Nome:</th>
+                    <th>Email:</th>                
+                    <th>Ações</th>                
+                </tr>
+            </thead>
+            <tbody>
+                {% for companyRecord in companyRecord %}
+                     <tr>
+                        <td>{{ companyRecord.id }}</td>
+                        <td>{{ companyRecord.company_name }}</td>
+                        <td>{{ companyRecord.company_email }}</td>
+                        <td>
+                            <a href="{% url "update_company" companyRecord.id %}" class="btn btn-secondary">Editar</a>
+                            <a href="{% url "delete_company" companyRecord.id %}" class="btn btn-danger">Deletar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock content %}
